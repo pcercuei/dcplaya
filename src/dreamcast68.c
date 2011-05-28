@@ -45,7 +45,6 @@
 #include "draw/ta.h"
 
 /* dreamcast68 includes */
-#include "file_wrapper.h"
 #include "matrix.h"
 #include "obj3d.h"
 #include "controler.h"

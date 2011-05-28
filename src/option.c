@@ -8,7 +8,6 @@
 #include "draw/text.h"
 #include "option.h"
 #include "controler.h"
-#include "file_wrapper.h"
 #include "driver_list.h"
 #include "sysdebug.h"
 #include "exceptions.h"

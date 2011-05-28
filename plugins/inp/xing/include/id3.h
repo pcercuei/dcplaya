@@ -1,7 +1,7 @@
 #ifndef _ID3_H_
 #define _ID3_H_
 
-#include "file_wrapper.h"
+#include <stdio.h>
 #include "id3tag.h"
 #include "playa_info.h"
 

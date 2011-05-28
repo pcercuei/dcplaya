@@ -27,8 +27,7 @@
 
 # include <stdlib.h>
 # include <string.h>
-//# include <stdio.h>
-# include "file_wrapper.h"
+# include <stdio.h>
 
 # ifdef HAVE_ASSERT_H
 #  include <assert.h>

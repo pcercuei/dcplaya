@@ -14,7 +14,6 @@
 #define _SC68UTILS_H_
 
 #include <stdio.h>
-#include "file_wrapper.h"
 
 #ifdef __cplusplus
 extern "C" {
