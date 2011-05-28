@@ -25,7 +25,7 @@ typedef struct {
 
 } istream_file_t;
 
-static const char * name(istream_t * istream)
+static const char * istream_file_name(istream_t * istream)
 {
   istream_file_t * isf = (istream_file_t *)istream;
 
@@ -34,7 +34,7 @@ static const char * name(istream_t * istream)
     : isf->name;
 }
 
-static int open(istream_t * istream)
+static int istream_file_open(istream_t * istream)
 {
   int imode;
   char mode[8];
@@ -62,7 +62,7 @@ static int open(istream_t * istream)
   return isf->f ? 0 : -1; 
 }
 
-static int close(istream_t * istream)
+static int istream_file_close(istream_t * istream)
 {
   istream_file_t * isf = (istream_file_t *)istream;
   int err;
@@ -75,7 +75,7 @@ static int close(istream_t * istream)
   return err;
 }
 
-static int read(istream_t * istream, void * data, int n)
+static int istream_file_read(istream_t * istream, void * data, int n)
 {
   istream_file_t * isf = (istream_file_t *)istream;
 
@@ -84,7 +84,7 @@ static int read(istream_t * istream, void * data, int n)
     : fread(data, 1, n, isf->f);
 }
 
-static int write(istream_t * istream, void * data, int n)
+static int istream_file_write(istream_t * istream, void * data, int n)
 {
   istream_file_t * isf = (istream_file_t *)istream;
 
@@ -97,7 +97,7 @@ static int write(istream_t * istream, void * data, int n)
 /* We could have store the length value at opening, but this way it handles
  * dynamic changes of file size.
  */
-static int length(istream_t * istream)
+static int istream_file_length(istream_t * istream)
 {
   istream_file_t * isf = (istream_file_t *)istream;
   int pos,len;
@@ -121,7 +121,7 @@ static int length(istream_t * istream)
   return len;
 }
 
-static int tell(istream_t * istream)
+static int istream_file_tell(istream_t * istream)
 {
   istream_file_t * isf = (istream_file_t *)istream;
 
@@ -130,7 +130,7 @@ static int tell(istream_t * istream)
     : ftell(isf->f);
 }
 
-static int seek(istream_t * istream, int offset)
+static int istream_file_seek(istream_t * istream, int offset)
 {
   istream_file_t * isf = (istream_file_t *)istream;
 
@@ -140,7 +140,8 @@ static int seek(istream_t * istream, int offset)
 }
 
 static const istream_t istream_file = {
-  name, open, close, read, write, length, tell, seek, seek 
+  istream_file_name, istream_file_open, istream_file_close, istream_file_read,
+  istream_file_write, istream_file_length, istream_file_tell, istream_file_seek, istream_file_seek,
 };
 
 istream_t * istream_file_create(const char * fname, int mode)

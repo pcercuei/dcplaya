@@ -299,7 +299,7 @@ int start(const char *fn, int track, playa_info_t *inf)
 }
 
 /* Shutdown the player */
-static int shutdown(any_driver_t * driver)
+static int nsf_shutdown(any_driver_t * driver)
 {
   SDDEBUG("%s('%s')\n", __FUNCTION__, driver->name);
   stop();
@@ -429,7 +429,7 @@ static inp_driver_t driver =
     "music player",      /**< Description */
     0,                   /**< DLL handler */
     init,                /**< Driver init */
-    shutdown,            /**< Driver shutdown */
+    nsf_shutdown,            /**< Driver shutdown */
     options,             /**< Driver options */
   },
   
