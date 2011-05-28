@@ -111,7 +111,7 @@ static int do_inflate(Byte * uncompr, int uncomprLen,
   return err;
 }
 
-static ssize_t read(file_t fd, void * buffer, size_t size)
+static ssize_t rz_read(file_t fd, void * buffer, size_t size)
 {
   rdfh_t * rd = (rdfh_t *)fd;
   int err;
@@ -172,7 +172,7 @@ static ssize_t read(file_t fd, void * buffer, size_t size)
 }
 
 
-static dirent_t * readdir(file_t fd)
+static dirent_t * rz_readdir(file_t fd)
 {
   rddh_t *dh = (rddh_t *)fd;
   int nlen,clen,ulen;
@@ -203,7 +203,7 @@ static dirent_t * readdir(file_t fd)
 
 
 /* Open a file or directory */
-static file_t open(vfs_handler_t * vfs, const char *fn, int mode)
+static file_t rz_open(vfs_handler_t * vfs, const char *fn, int mode)
 {
   const char * name;
 
@@ -283,7 +283,7 @@ static file_t open(vfs_handler_t * vfs, const char *fn, int mode)
 }
 
 /* Close a file or directory */
-static void close(uint32 fd)
+static void rz_close(uint32 fd)
 {
   rdfh_t * rd;
   rddh_t * dh;
@@ -304,7 +304,7 @@ static void close(uint32 fd)
 }
 
 /* Seek elsewhere in a file */
-static off_t seek(uint32 fd, off_t offset, int whence)
+static off_t rz_seek(uint32 fd, off_t offset, int whence)
 {
   rdfh_t * rd = (rdfh_t *)fd;
 
@@ -335,7 +335,7 @@ static off_t seek(uint32 fd, off_t offset, int whence)
 }
 
 /* Tell where in the file we are */
-static off_t tell(uint32 fd)
+static off_t rz_tell(uint32 fd)
 {
   rdfh_t * rd = (rdfh_t *)fd;
 
@@ -346,7 +346,7 @@ static off_t tell(uint32 fd)
 }
 
 /* Tell how big the file is */
-static size_t total(uint32 fd)
+static size_t rz_total(uint32 fd)
 {
   rdfh_t * rd = (rdfh_t *)fd;
 
@@ -367,14 +367,14 @@ static vfs_handler_t vh = {
     NMMGR_LIST_INIT	/* list */
   },
   0, 0,		        /* In-kernel, no cacheing */
-  open,
-  close,
-  read,
+  rz_open,
+  rz_close,
+  rz_read,
   0,    //write
-  seek, //only for total !!
-  tell,
-  total,
-  readdir,
+  rz_seek, //only for total !!
+  rz_tell,
+  rz_total,
+  rz_readdir,
   0,
   0,
   0,
@@ -405,7 +405,7 @@ int fs_rz_init(const unsigned char * romdisk)
   SDDEBUG("[%s] : %d entries\n",__FUNCTION__, root_entries);
 
   /* Register with VFS */
-  if (nmmgr_handler_add(&vh)) {
+  if (nmmgr_handler_add(&vh.nmmgr)) {
     SDERROR("-->fs_handler_add failed\n");
     return -1;
   }
@@ -437,5 +437,5 @@ int fs_rz_shutdown(void)
   memset(&mydh,0,sizeof(mydh));
   cur_dh = 0;
 
-  return nmmgr_handler_remove(&vh);
+  return nmmgr_handler_remove(&vh.nmmgr);
 }
