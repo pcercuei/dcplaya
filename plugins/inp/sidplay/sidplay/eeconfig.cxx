@@ -6,6 +6,8 @@
 
 #include "eeconfig.h"
 
+#include <time.h>
+
 // ------------------------------------------------------------- constructors
 
 emuEngine::emuEngine()
