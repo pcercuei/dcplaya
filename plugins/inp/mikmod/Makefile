@@ -8,7 +8,7 @@
 #
 
 SUBDIRS=mikmod
-KOS_LOCAL_INCS = -I.  -I../../../include -Imikmod/include
+KOS_LOCAL_INCS = -iquote .  -iquote ../../../include -iquote mikmod/include
 
 LEZ=yes
 LEF_EXTRA := $(foreach dir,$(SUBDIRS),$(dir)/lib$(dir).a)

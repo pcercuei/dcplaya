@@ -8,7 +8,7 @@
 
 LEZ=yes
 
-KOS_LOCAL_INCS := -I. -I../../../include
+KOS_LOCAL_INCS := -iquote . -iquote ../../../include
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 
 include ../../../Makefile.inc

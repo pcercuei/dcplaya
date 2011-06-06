@@ -301,7 +301,7 @@ req required: .deps $(REQUIRED_LOCAL) required_subdirs
 # ----------------------------------------------------------------------
 
 # Remove standard includes, assumes local includes are "" and kos are <>
-KOS_INC_RULES=$(KOS_LOCAL_INCS) -I- $(KOS_INCS) -I$(KOS_BASE)/kernel/arch/$(KOS_ARCH)/include
+KOS_INC_RULES=$(KOS_LOCAL_INCS) $(KOS_INCS) -I$(KOS_BASE)/kernel/arch/$(KOS_ARCH)/include
 
 #CDEP=-MT $@ -MD -MP -MF .deps/$(@:%.o=%.d)
 

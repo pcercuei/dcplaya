@@ -12,7 +12,7 @@
 LEZ=yes
 
 #LEF_EXTRA := $(foreach dir,$(SUBDIRS),$(dir)/lib$(dir).a) 
-KOS_LOCAL_INCS := -I. -I../../../include -Iid3tag
+KOS_LOCAL_INCS := -iquote . -iquote ../../../include -iquote id3tag
 KOS_INCS += -Iinclude
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 

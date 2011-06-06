@@ -18,8 +18,8 @@ LEF_EXTRA := -L$(NFS_DIR) -l$(NFS_DIR)
 
 KOS_LOCAL_CFLAGS := -DHOST_LITTLE_ENDIAN -DDCPLAYA=1 -DNSF_PLAYER=1
 
-KOS_LOCAL_INCS := -I../../../include\
- $(foreach i,$(NSF_INCS),-I$(NFS_DIR)/src/$(i))
+KOS_LOCAL_INCS := -iquote ../../../include\
+ $(foreach i,$(NSF_INCS),-iquote $(NFS_DIR)/src/$(i))
 
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 

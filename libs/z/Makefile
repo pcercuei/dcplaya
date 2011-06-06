@@ -7,7 +7,7 @@
 # $Id: Makefile,v 1.2 2002-09-20 00:22:14 benjihan Exp $
 
 LIBRARY=yes
-KOS_LOCAL_INCS= -I. -I../../include
+KOS_LOCAL_INCS= -iquote . -iquote ../../include
 KOS_LOCAL_CFLAGS = -DSTDC -DNO_ERRNO_H
 OBJS = \
  adler32.o compress.o crc32.o gzio.o uncompr.o deflate.o trees.o\

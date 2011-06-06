@@ -8,7 +8,7 @@
 
 LEZ=yes
 
-KOS_LOCAL_INCS := -I. -I../../../include -I../../../libs
+KOS_LOCAL_INCS := -iquote . -iquote ../../../include -iquote ../../../libs
 
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 

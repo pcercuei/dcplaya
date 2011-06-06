@@ -30,7 +30,7 @@ endif
 VPATH = src
 
 OPTIMIZE = $(OPTIMIZE_FOR_SIZE)
-KOS_LOCAL_INCS := -I../../include
+KOS_LOCAL_INCS := -iquote ../../include
 CLEAN_LOCAL := *.lez *.lef src/*
 
 

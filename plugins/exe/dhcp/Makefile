@@ -8,7 +8,7 @@
 
 LEZ=yes
 
-KOS_LOCAL_INCS += -I. -I../../../include -I../net
+KOS_LOCAL_INCS += -iquote . -iquote ../../../include -iquote ../net -iquote ../../../libs
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 
 include ../../../Makefile.inc
@@ -21,5 +21,3 @@ KOS_INCS +=  \
 	-DIPv4 \
 	-I$(LWIPDIR)/include -I$(ARCHDIR)/include \
 	-I$(LWIPDIR)/include/ipv4 
-
-KOS_LOCAL_INCS += -I../../../include -I../../../libs -I.

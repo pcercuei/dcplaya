@@ -26,11 +26,11 @@ LEZ=yes
 LEF_EXTRA := $(foreach dir,$(SUBDIRS),$(dir)/lib$(dir).a)\
  -L$(SC68PREFIX)/lib $(foreach dir,$(SC68LIB),-l$(dir))
 
-#KOS_LOCAL_INCS := $(foreach dir, $(SC68INCS), -I"$(SC68HOME)/$(dir)")\
-# -I../../../include -I.  -I../../../libs/z
+#KOS_LOCAL_INCS := $(foreach dir, $(SC68INCS), -iquote "$(SC68HOME)/$(dir)")\
+# -iquote ../../../include -iquote .  -iquote ../../../libs/z
 
-KOS_LOCAL_INCS := -Iinclude\
- -I../../../include -I.  -I../../../libs/z
+KOS_LOCAL_INCS := -iquote include\
+ -iquote ../../../include -iquote .  -iquote ../../../libs/z
 
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 

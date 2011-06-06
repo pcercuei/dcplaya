@@ -15,7 +15,7 @@ LEF_EXTRA := $(foreach dir,$(SUBDIRS),$(dir)/lib$(dir).a)
 #ELFS=$(shell basename `pwd`).elf
 #ELF_EXTRA := $(foreach dir,$(SUBDIRS),$(dir)/lib$(dir).a)
 
-KOS_LOCAL_INCS := -I../../../include -Iinclude -Iid3tag
+KOS_LOCAL_INCS := -iquote ../../../include -iquote include -iquote id3tag
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 
 include ../../../Makefile.inc

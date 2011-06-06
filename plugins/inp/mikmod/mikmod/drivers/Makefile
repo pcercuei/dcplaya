@@ -5,7 +5,7 @@
 #LIBRARY=yes
 OBJS = drv_dcplaya.o drv_nos.o
 
-KOS_LOCAL_INCS = -I. -I../../../../../include
+KOS_LOCAL_INCS = -iquote . -iquote ../../../../../include
 KOS_INCS = -I../include
 
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)

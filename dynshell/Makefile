@@ -9,7 +9,7 @@ OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 
 TOPDIR:=$(dir $(shell pwd))
 
-KOS_LOCAL_INCS := -I../include -I.. -I../libs
+KOS_LOCAL_INCS := -iquote ../include -iquote .. -iquote ../libs
 #KOS_LOCAL_CFLAGS += -DDREAMMP3_HOME="\"$(TOPDIR)dcplaya/make-cd/dcplaya\""
 
 include ../Makefile.inc

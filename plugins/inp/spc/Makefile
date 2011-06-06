@@ -18,8 +18,8 @@ LEF_EXTRA := -L$(SPC_DIR) -l$(SPC_DIR)
 
 KOS_LOCAL_CFLAGS := -DHOST_LITTLE_ENDIAN -DDCPLAYA=1 -DSPC_PLAYER=1
 
-KOS_LOCAL_INCS := -I../../../include\
- $(foreach i,$(SPC_INCS),-I$(SPC_DIR)/$(i))
+KOS_LOCAL_INCS := -iquote ../../../include\
+ $(foreach i,$(SPC_INCS),-iquote $(SPC_DIR)/$(i))
 
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 

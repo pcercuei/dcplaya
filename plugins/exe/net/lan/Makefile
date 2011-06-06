@@ -13,7 +13,7 @@ LEF_EXTRA :=
 
 KOS_LOCAL_CFLAGS += -DHOST_LITTLE_ENDIAN -DDCPLAYA=1
 
-KOS_LOCAL_INCS += -I.. -I. -I../../../../include -I../../../../libs
+KOS_LOCAL_INCS += -iquote .. -iquote . -iquote ../../../../include -iquote ../../../../libs
 
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 

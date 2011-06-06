@@ -21,8 +21,8 @@ LEF_EXTRA = -L$(KOS_BASE)/addons/lib/dreamcast -loggvorbisplay
 
 KOS_LOCAL_CFLAGS += -DHOST_LITTLE_ENDIAN -DDCPLAYA=1 -falign-functions=32 -falign-loops=32 -falign-jumps=32
 
-KOS_LOCAL_INCS += -I. -I../../../include -I../../../libs\
- $(foreach i,$(FFMPEG_INCS),-I$(FFMPEG_DIR)/$(i))
+KOS_LOCAL_INCS += -iquote . -iquote ../../../include -iquote ../../../libs\
+ $(foreach i,$(FFMPEG_INCS),-iquote $(FFMPEG_DIR)/$(i))
 
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 

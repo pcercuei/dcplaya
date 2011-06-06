@@ -20,8 +20,8 @@ LEF_EXTRA := -L$(XVID_DIR) -lxvidcore
 
 KOS_LOCAL_CFLAGS += -DHOST_LITTLE_ENDIAN -DDCPLAYA=1
 
-KOS_LOCAL_INCS += -I.. -I. -I../../../../include -I../../../../libs\
-	-I$(XVID_DIR)/src $(foreach i,$(FFMPEG_INCS),-I$(FFMPEG_DIR)/$(i))
+KOS_LOCAL_INCS += -iquote .. -iquote . -iquote ../../../../include -iquote ../../../../libs\
+	-I$(XVID_DIR)/src $(foreach i,$(FFMPEG_INCS),-iquote $(FFMPEG_DIR)/$(i))
 
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 

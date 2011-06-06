@@ -11,7 +11,7 @@ SUBDIRS=
 LEZ=yes
 #LEF_EXTRA := $(foreach dir,$(SUBDIRS),$(dir)/lib$(dir).a) 
 
-KOS_LOCAL_INCS := -I../../../include
+KOS_LOCAL_INCS := -iquote ../../../include
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 
 include ../../../Makefile.inc

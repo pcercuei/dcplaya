@@ -8,7 +8,7 @@
 
 LEZ=yes
 
-KOS_LOCAL_INCS += -I. -I../../../include
+KOS_LOCAL_INCS += -iquote . -iquote ../../../include -iquote ../../../libs
 OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
 
 SUBDIRS = bba lan
@@ -23,7 +23,5 @@ KOS_INCS +=  \
 	-DIPv4 \
 	-I$(LWIPDIR)/include -I$(ARCHDIR)/include \
 	-I$(LWIPDIR)/include/ipv4 
-
-KOS_LOCAL_INCS += -I../../../include -I../../../libs -I.
 
 LEF_EXTRA += -L$(KOS_BASE)/addons/lib/dreamcast -llwip4
