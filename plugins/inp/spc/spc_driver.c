@@ -81,7 +81,7 @@ static int stop(void)
   return 0;
 }
   
-static int shutdown(any_driver_t *d)
+static int spc_shutdown(any_driver_t *d)
 {
   EXPT_GUARD_BEGIN;
 
@@ -367,7 +367,7 @@ static inp_driver_t spc_driver =
     "SNES music player",  /**< Description */
     0,                    /**< DLL handler */
     init,                 /**< Driver init */
-    shutdown,             /**< Driver shutdown */
+    spc_shutdown,         /**< Driver shutdown */
     options,              /**< Driver options */
     commands,             /**< Lua shell commands */
   },
