@@ -18,8 +18,6 @@
 #include <kos/thread.h>
 #include <kos/sem.h>
 
-CVSID("$Id: broadband_adapter.c,v 1.3 2003/07/22 03:31:58 bardtx Exp $");
-
 #define vid_border_color(r, g, b) (void)0 /* nothing */
 
 /* Configuration definitions */

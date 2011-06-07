@@ -13,8 +13,6 @@
 #include <dc/maple.h>
 #include <dc/maple/keyboard.h>
 
-CVSID("$Id: keyboard.c,v 1.10 2007-03-17 14:40:29 vincentp Exp $");
-
 /*
 
 This module is an (almost) complete keyboard system. It handles key

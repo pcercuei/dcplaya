@@ -16,8 +16,6 @@
 #include <arch/timer.h>
 #include <kos/net.h>
 
-CVSID("$Id: lan_adapter.c,v 1.8 2003/02/25 07:39:37 bardtx Exp $");
-
 /*
 
    Contains a low-level ethernet driver for the "Lan Adapter" (HIT-0300), which
