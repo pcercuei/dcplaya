@@ -245,8 +245,7 @@ int sc_close(int fd)
     return syscall_retval;
 }
 
-typedef int mode_t;
-int sc_creat(const char *pathname, mode_t mode)
+int sc_creat(const char *pathname, int mode)
 {
     command_int_string_t * command = (command_int_string_t *)(pkt_buf + ETHER_H_LEN + IP_H_LEN + UDP_H_LEN);
 
@@ -312,7 +311,7 @@ int sc_chdir(const char *path)
     return syscall_retval;
 }
 
-int sc_chmod(const char *path, mode_t mode)
+int sc_chmod(const char *path, int mode)
 {
     command_int_string_t * command = (command_int_string_t *)(pkt_buf + ETHER_H_LEN + IP_H_LEN + UDP_H_LEN);
 
