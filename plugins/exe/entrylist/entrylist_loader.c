@@ -353,7 +353,7 @@ int el_loader_init(void)
   sem_wait(loader_sem);
 
   PRINTF("entrylist_load_init : create thread.\n");
-  loader_thd = thd_create(loader_thread, loader_sem);
+  loader_thd = thd_create(THD_DEFAULTS, loader_thread, loader_sem);
   if (!loader_thd) {
     printf("entrylist_load_init : thread failed.\n");
     sem_signal(loader_sem);

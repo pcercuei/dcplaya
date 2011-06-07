@@ -971,7 +971,7 @@ int bba_init() {
 	/* VP : Initialize rx thread */
 	bba_rx_sema = sem_create(0);
 	bba_rx_sema2 = sem_create(1);
-	kthread_t * thd = thd_create(bba_rx_thread, 0);
+	kthread_t * thd = thd_create(THD_DEFAULTS, bba_rx_thread, 0);
 	thd->prio = 1;
 	thd_set_label(thd, "BBA-rx-thd");
 

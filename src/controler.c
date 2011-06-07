@@ -261,7 +261,7 @@ int controler_init(void)
   }
 
   status = RUNNING;
-  controler_thd = thd_create(controler_thread, 0);
+  controler_thd = thd_create(THD_DEFAULTS, controler_thread, 0);
   controler_thd->prio2 = MAPLE_THREAD_PRIORITY;
   if (controler_thd) {
     thd_set_label(controler_thd, "Controler-thd");

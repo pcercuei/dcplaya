@@ -266,7 +266,7 @@ static int init(any_driver_t *d)
 
   dma_done = sem_create(0);
   dma_pics_sema = sem_create(0);
-  vidstream_thd = thd_create(vidstream_thread, 0);
+  vidstream_thd = thd_create(THD_DEFAULTS, vidstream_thread, 0);
   if (vidstream_thd)
     thd_set_label(vidstream_thd, "Video-picture-thd");
   //vidstream_thd->prio2 = 9;
@@ -276,7 +276,7 @@ static int init(any_driver_t *d)
   {
     int old = thd_default_stack_size;
     thd_default_stack_size = 64*1024;
-    vdecode_thd = thd_create(vdecode_thread, 0);
+    vdecode_thd = thd_create(THD_DEFAULTS, vdecode_thread, 0);
     if (vdecode_thd)
       thd_set_label(vdecode_thd, "Video-decode-thd");
     thd_default_stack_size = old;

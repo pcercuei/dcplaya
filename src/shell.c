@@ -220,7 +220,7 @@ int shell_init()
   if (!shell_lef)
     shell_load(shell_lef_fname);
 
-  thd = thd_create(shell_thread, 0);
+  thd = thd_create(THD_DEFAULTS, shell_thread, 0);
   thd_default_stack_size = old;
 
   if (thd)

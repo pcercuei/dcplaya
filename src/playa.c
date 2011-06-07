@@ -458,7 +458,7 @@ int playa_init()
 #else
   SDDEBUG("Create soundstream thread\n");
   streamstatus = PLAYA_STATUS_INIT;
-  sndstream_thd = thd_create(sndstream_thread, 0);
+  sndstream_thd = thd_create(THD_DEFAULTS, sndstream_thread, 0);
   if (sndstream_thd) {
     thd_set_label(sndstream_thd, "Sound-stream-thd");
   }
@@ -475,7 +475,7 @@ int playa_init()
   {
     int old = thd_default_stack_size;
     thd_default_stack_size = 64*1024;
-    playa_thread = thd_create(playadecoder_thread, 0);
+    playa_thread = thd_create(THD_DEFAULTS, playadecoder_thread, 0);
     if (playa_thread) {
       thd_set_label(playa_thread, "Playa-thd");
     }
